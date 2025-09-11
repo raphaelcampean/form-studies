@@ -1,0 +1,47 @@
+<%= turbo_frame_tag "user_info" do %>
+	<%= render 'info' %>
+<% end %>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Editar Usuário</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<%= form_with model: @user, url: user_path(@user), method: :put do |f| %>
+						<div class="mb-3">
+								<%= f.label :name, "Nome" %>
+								<%= f.text_field :name, class: "form-control", required: true %>
+						</div>
+						<div class="mb-3">
+								<%= f.label :username, "Nome de usuário" %>
+								<%= f.text_field :username, class: "form-control", required: true %>
+						</div>
+						<div class="mb-3">
+								<%= f.label :email, "Email" %>
+								<%= f.email_field :email, class: "form-control", required: true %>
+						</div>
+						<div class="mb-3">
+								<%= f.label :bio, "Biografia" %>
+								<%= f.text_area :bio, class: "form-control", required: true %>
+						</div>
+						<div class="mb-3">
+								<%= f.label :city, "Cidade" %>
+								<%= f.text_field :city, class: "form-control", required: true %>
+						</div>
+
+						<div class="mb-3">
+								<%= f.label :template, "Template" %>
+								<%= f.select :template, User.templates.keys.map { |k| [k.humanize, k] }, {}, class: "form-select", required: true %>
+						</div>
+						<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+								<%= f.submit "Salvar mudanças", class: "btn btn-primary" %>
+						</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FormTest</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-light">
+    <nav style="background-color: rgba(247, 0, 0, 1); box-shadow: 0 2px 4px rgba(0,0,0,0.1); height: 60px; display: flex; align-items: center; padding: 0 20px; margin-bottom: 20px;">
+      <div class="container">
+        <a class="text-white" href="<%= root_path %>">Home</a>
+      </div>
+    </nav>
+
+    <div id="flash" class="container mt-3">
+      <%= render 'shared/flash' %>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>

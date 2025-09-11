@@ -1,0 +1,13 @@
+<%= turbo_stream.replace "user_info" do %>
+  <%= render 'info' %>
+
+	<script>
+		var modal = document.getElementById('exampleModal');
+		if (modal) {
+			var modalInstance = bootstrap.Modal.getInstance(modal) || new bootstrap.Modal(modal);
+			modalInstance.hide();
+		}
+	</script>
+<% end %>
+
+<%= turbo_stream.prepend "flash", partial: 'shared/flash' %>

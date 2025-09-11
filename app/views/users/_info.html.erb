@@ -1,0 +1,13 @@
+<div style="background-color: #f8f9fa; box-shadow: 0 4px 16px rgba(0,0,0,0.2); border-radius: 8px; padding: 32px; max-width: 400px; margin: 40px auto; display: flex; flex-direction: column; align-items: center;">
+	<ul style="width: 100%;">
+		<li><strong>Nome:</strong> <%= @user.name %></li>
+		<li><strong>Email:</strong> <%= @user.email %></li>
+		<li><strong>Bio:</strong> <%= @user.bio %></li>
+		<li><strong>Cidade:</strong> <%= @user.city %></li>
+		<li><strong>Nome de Usuário:</strong> <%= @user.username %></li>
+	</ul>
+
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		Editar Usuário
+	</button>
+</div>
