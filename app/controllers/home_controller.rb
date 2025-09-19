@@ -14,6 +14,13 @@ class HomeController < ApplicationController
     end
   end
 
+  def hello_job
+    respond_to do |format|
+      format.turbo_stream { @message = "Carregando..." }
+    end
+
+    HelloJob.perform_later
+  end
   private
 
   def user_params

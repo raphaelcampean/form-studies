@@ -1,11 +1,24 @@
 <div class="d-flex justify-content-center mt-4">
+	<%= link_to "Clique aqui", hello_job_path, class: "btn btn-success", data: { turbo_stream: true } %>
+</div>
+
+<%= turbo_stream_from "hello" %>
+
+<div class="text-center mt-4">
+	<%= turbo_frame_tag "hello_job" do %>
+		<p>Aguardando job...</p>
+		<h3>Nada por aqui...</h3>
+	<% end %>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
 	<div>
 		<h3>Usuários</h3>
 		<ul class="list-group">
 			<% @users.each do |user| %>
 				<li class="list-group-item d-flex justify-content-between align-items-center">
 					<%= user.name %>
-					<%= link_to "Ver", user_path(user), class: "btn btn-primary btn-sm" %>
+					<%= link_to "Ver", user_path(user), class: "btn btn-primary btn-sm", data: { turbo_stream: false } %>
 				</li>
 			<% end %>
 		</ul>

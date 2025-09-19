@@ -71,3 +71,5 @@ gem "sassc-rails", "~> 2.1"
 gem "bootstrap", "~> 5.3"
 
 gem "jquery-rails", "~> 4.6"
+
+gem "sidekiq", "~> 8.0"
